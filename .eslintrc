@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "process": true,
+    "module": true,
+    "require": true
+  },
+  "extends": "eslint:recommended",
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+	  "experimentalObjectRestSpread": true
+    },
+	  "sourceType": "module"
+  },
+  "rules": {
+    "no-console": 0,
+    "no-unused-vars": 0,
+    "no-restricted-globals": 0,
+    "comma-style": [
+      "error",
+      "first",
+      { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
+}

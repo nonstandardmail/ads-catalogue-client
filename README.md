@@ -3,15 +3,16 @@
 ``` javascript
 const createClient = require('ads-catalogue-client')
 const catalogue = createClient(projectId, projectStarageName)
+
 catalogue.listProducts()
   .then(console.log)
 ```
 
 ### Методы
 
-- `#listProducts`: () -> Promise<Array<Product>>
-- `#listPads`: () -> Promise<Array<Pad>>
-- `#listBusinessGoals`: () -> Promise<Array<BusinessGoal>>
+- `#listProducts: () -> Promise<Array<Product>>`
+- `#listPads: () -> Promise<Array<Pad>>`
+- `#listBusinessGoals: () -> Promise<Array<BusinessGoal>>`
 
 ### Локализация
 

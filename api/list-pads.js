@@ -5,7 +5,7 @@ const query =
   `*[_type == "pad"] {
     title,
     "id": _id,
-    "parent": parents._ref
+    "parentId": parents._ref
   }`
 
 module.exports = (sanityProject, sanityStorageName) =>

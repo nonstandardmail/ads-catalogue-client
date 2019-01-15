@@ -4,6 +4,6 @@ const listPads = require('./api/list-pads')
 
 module.exports = (sanityProject, sanityStorageName) => ({
   listProducts: listProducts(sanityProject, sanityStorageName),
-  listBusinesGoals: listBusinesGoals(sanityProject, sanityStorageName),
+  listBusinessGoals: listBusinesGoals(sanityProject, sanityStorageName),
   listPads: listPads(sanityProject, sanityStorageName)
 })

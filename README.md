@@ -14,6 +14,7 @@ catalogue.listProducts()
 - `#listPads: () -> Promise<Array<Pad>>`
 - `#listBusinessGoals: () -> Promise<Array<BusinessGoal>>`
 - `#listArticles: () -> Promise<Array<Article>>`
+- `#listLetters: () -> Promise<Array<Letter>>`
 
 ### Локализация
 

@@ -15,6 +15,7 @@ catalogue.listProducts()
 - `#listBusinessGoals: () -> Promise<Array<BusinessGoal>>`
 - `#listArticles: () -> Promise<Array<Article>>`
 - `#listLetters: () -> Promise<Array<Letter>>`
+- `#search: () -> Promise<Array<SearchResult>>`
 
 ### Локализация
 

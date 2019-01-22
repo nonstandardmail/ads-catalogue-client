@@ -8,7 +8,7 @@ const bodyToHTML = (projectId, dataset) => target => {
 }
 
 const query =
-  `*[_type == "letter"] {
+  `*[_type == "letter" && publicationDate <= '${(new Date()).toISOString()}' ] {
     "title": article->title.ru,
     "body": article->body.ru,
     "recipients": recipients[]->{list},

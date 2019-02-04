@@ -1,5 +1,4 @@
 const fetchFactory = require('../lib/fetch/fetch-factory')
-const l18n = require('../lib/l18n/l18n-decorator')
 
 const query =
   `*[_type == "pad"] {
@@ -13,5 +12,5 @@ module.exports = (sanityProject, sanityStorageName) =>
     sanityProject,
     sanityStorageName,
     query,
-    l18n
+    id => id
   )

@@ -1,6 +1,5 @@
 const { pipe, map } = require('ramda')
 const fetchFactory = require('../lib/fetch/fetch-factory')
-const l18n = require('../lib/l18n/l18n-decorator')
 const unnestSlug = require('../lib/transforms/common/unnest-slug')
 const refsToIds = require('../lib/transforms/common/refs-to-ids')
 const formatDevices = require('../lib/transforms/product/format-devices')
@@ -33,8 +32,7 @@ const transform =
     map(formatDevices),
     map(formatPreviews),
     map(formatSummaryTable),
-    map(setIsNewField),
-    l18n
+    map(setIsNewField)
   )
 
 module.exports = (sanityProject, sanityStorageName) =>

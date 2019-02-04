@@ -1,6 +1,5 @@
-const { pipe, map } = require('ramda')
+const { map } = require('ramda')
 const fetchFactory = require('../lib/fetch/fetch-factory')
-const l18n = require('../lib/l18n/l18n-decorator')
 const unnestSlug = require('../lib/transforms/common/unnest-slug')
 
 const query =
@@ -17,5 +16,5 @@ module.exports = (sanityProject, sanityStorageName) =>
     sanityProject,
     sanityStorageName,
     query,
-    pipe(map(unnestSlug), l18n)
+    map(unnestSlug)
   )

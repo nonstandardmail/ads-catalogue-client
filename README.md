@@ -1,14 +1,14 @@
 ### Пример использования
 
 ``` javascript
-const createClient = require('ads-catalogue-client')
+const { createClient } = require('ads-catalogue-client')
 const catalogue = createClient(projectId, projectStarageName)
 
 catalogue.listProducts()
   .then(console.log)
 ```
 
-### Методы
+### Методы клиента возвращаемого фабрикой `createClient`
 
 - `#listProducts: () -> Promise<Array<Product>>`
 - `#listPads: () -> Promise<Array<Pad>>`
@@ -17,20 +17,16 @@ catalogue.listProducts()
 - `#listLetters: () -> Promise<Array<Letter>>`
 - `#search: () -> Promise<Array<SearchResult>>`
 
-### Локализация
-
-Списки, возвращаемые клиентом имеют метод `#localize (lang:String) -> <Array<...>>`, локализующий объекты списка.
-
-Пример:
+### Функция выполняющая локализацию `localize`
 
 ``` javascript
-const createClient = require('ads-catalogue-client')
+const { createClient, localize } = require('ads-catalogue-client')
 const catalogue = createClient(projectId, projectStarageName)
 
 ;(async () => {
   const pads = await catalogue.listPads()
   console.log('Original:', pads)
-  console.log('Localized:', pads.localize('ru'))
+  console.log('Localized:', localize('ru', pads))
 })()
 ```
 

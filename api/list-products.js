@@ -9,6 +9,7 @@ const setIsNewField = require('../lib/transforms/product/set-is-new-field')
 
 const query =
   `*[_type == "product"] {
+    "id": _id,
     title,
     lead,
     slug,

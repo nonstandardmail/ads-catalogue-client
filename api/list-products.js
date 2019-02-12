@@ -15,6 +15,7 @@ const query =
     pads,
     businessGoals,
     minimalBudget,
+    summaryTable,
     "devices": devices[]->{name},
     "previews": [
       mobilePreview.asset->url,

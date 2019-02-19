@@ -9,7 +9,7 @@ export default {
   input: "index.js",
   output: {
     name: "ads-catalogue-client",
-    file: pkg.browser,
+    file: pkg.main,
     format: "umd"
   },
   plugins: [

@@ -14771,16 +14771,30 @@
   };
 
   var pipe$1 = es.pipe,
-      map$8 = es.map;
+      map$8 = es.map,
+      groupBy$1 = es.groupBy;
   var langs = ['en', 'ru'];
   var warnings = {
     ru: 'Уточняйте действующие цены у наших менеджеров',
     en: 'Price may vary. Contact us to get a quote'
   };
 
-  function unnestRows(target) {
+  function wrapCells(target) {
     for (var _i = 0; _i < langs.length; _i++) {
       var lang = langs[_i];
+      if (target[lang] && target[lang].rows) target[lang].rows = map$8(function (cells) {
+        return {
+          cells: cells
+        };
+      }, target[lang].rows);
+    }
+
+    return target;
+  }
+
+  function unnestRows(target) {
+    for (var _i2 = 0; _i2 < langs.length; _i2++) {
+      var lang = langs[_i2];
       if (target[lang] && target[lang].rows) target[lang] = target[lang].rows;
     }
 
@@ -14791,25 +14805,39 @@
     var priceRowRegEx = /price|cost|charge|cpm|cpu|cpa|цен(ы|а)|стоимость|руб\./i;
 
     var _loop = function _loop() {
-      var lang = langs[_i2];
+      var lang = langs[_i3];
 
       if (target[lang]) {
         target[lang] = map$8(function (row) {
-          if (priceRowRegEx.test(row.cells[0]) || priceRowRegEx.test(row.cells[1])) row.tooltip = warnings[lang];
+          if (priceRowRegEx.test(row.cells[1]) || priceRowRegEx.test(row.cells[2])) row.tooltip = warnings[lang];
           return row;
         }, target[lang]);
       }
     };
 
-    for (var _i2 = 0; _i2 < langs.length; _i2++) {
+    for (var _i3 = 0; _i3 < langs.length; _i3++) {
       _loop();
     }
 
     return target;
   }
 
+  function groupByPads(target) {
+    for (var _i4 = 0; _i4 < langs.length; _i4++) {
+      var lang = langs[_i4];
+
+      if (target[lang]) {
+        target[lang] = groupBy$1(function (row) {
+          return row.cells.shift();
+        }, target[lang]);
+      }
+    }
+
+    return target;
+  }
+
   var formatSummaryTable = function formatSummaryTable(target) {
-    target.summaryTable = pipe$1(unnestRows, addTooltips)(target.summaryTable);
+    target.summaryTable = pipe$1(wrapCells, unnestRows, addTooltips, groupByPads)(target.summaryTable);
     return target;
   };
 
@@ -16669,7 +16697,7 @@
     return Array.isArray(target) ? map$e(partial$1(localizeObject, [lang]), target) : localizeObject(lang, target);
   };
 
-  var adsCatalogueClient = {
+  var nonstandardAdsCatalogueClient = {
     createClient: function createClient(sanityProject, sanityStorageName) {
       return {
         listProducts: listProducts(sanityProject, sanityStorageName),
@@ -16682,12 +16710,12 @@
     },
     localize: l18n
   };
-  var adsCatalogueClient_1 = adsCatalogueClient.createClient;
-  var adsCatalogueClient_2 = adsCatalogueClient.localize;
+  var nonstandardAdsCatalogueClient_1 = nonstandardAdsCatalogueClient.createClient;
+  var nonstandardAdsCatalogueClient_2 = nonstandardAdsCatalogueClient.localize;
 
-  exports.default = adsCatalogueClient;
-  exports.createClient = adsCatalogueClient_1;
-  exports.localize = adsCatalogueClient_2;
+  exports.default = nonstandardAdsCatalogueClient;
+  exports.createClient = nonstandardAdsCatalogueClient_1;
+  exports.localize = nonstandardAdsCatalogueClient_2;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

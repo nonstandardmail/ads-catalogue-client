@@ -14775,7 +14775,7 @@
       groupBy$1 = es.groupBy;
   var langs = ['en', 'ru'];
   var warnings = {
-    ru: 'Уточняйте действующие цены у наших менеджеров',
+    ru: 'Уточняйте действующие цены у наших менеджеров',
     en: 'Price may vary. Contact us to get a quote'
   };
 

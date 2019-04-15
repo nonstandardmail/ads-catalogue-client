@@ -3,7 +3,7 @@ const fetchFactory = require('../lib/fetch/fetch-factory')
 const unnestSlug = require('../lib/transforms/common/unnest-slug')
 
 const query =
-  `*[_type == "article"] {
+  `*[_type == "article"] | order(publicationDate desc) {
     title,
     body,
     "date": publicationDate,

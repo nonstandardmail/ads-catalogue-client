@@ -1,6 +1,6 @@
 {
   "name": "ads-catalogue-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "@babel/core": "^7.3.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
+    "@babel/runtime": "^7.7.6",
     "@babel/types": "^7.3.3",
     "ava": "^1.2.1",
     "dotenv": "^6.2.0",

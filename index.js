@@ -3,6 +3,7 @@ const listBusinesGoals = require('./api/list-business-goals')
 const listPads = require('./api/list-pads')
 const listArticles = require('./api/list-articles')
 const listLetters = require('./api/list-letters')
+const listFormatTypes = require('./api/list-format-types')
 const search = require('./api/search')
 const localize = require('./lib/l18n/l18n')
 
@@ -13,6 +14,7 @@ module.exports = {
     listPads: listPads(sanityProject, sanityStorageName),
     listArticles: listArticles(sanityProject, sanityStorageName),
     listLetters: listLetters(sanityProject, sanityStorageName),
+    listFormatTypes: listFormatTypes(sanityProject, sanityStorageName),
     search: search(sanityProject, sanityStorageName)
   }),
   localize

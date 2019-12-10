@@ -15,6 +15,7 @@ catalogue.listProducts()
 - `#listBusinessGoals: () -> Promise<Array<BusinessGoal>>`
 - `#listArticles: () -> Promise<Array<Article>>`
 - `#listLetters: () -> Promise<Array<Letter>>`
+- `#listFormatTypes: () -> Promise<Array<FormatType>>`
 - `#search: () -> Promise<Array<SearchResult>>`
 
 ### Функция выполняющая локализацию `localize`

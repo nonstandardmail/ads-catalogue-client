@@ -17,6 +17,7 @@ const query =
     businessGoals,
     minimalBudget,
     summaryTable,
+    "formatType": formatType._ref, 
     "devices": devices[]->{name},
     "previews": [
       mobilePreview.asset->url,
